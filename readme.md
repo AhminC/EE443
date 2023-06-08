@@ -1,3 +1,10 @@
+# EE 443: MOT Tutorial
+1. Use the "EE 443 MOT video generator.ipynb" notebook
+2. Run each cell line by line. Read the text cells for any specific instructions.
+3. When downloading ByteTrack, please change requirements.txt to have onnx and onnxruntime==1.12.0 instead of 1.8.0/1.8.1
+4. The first instance of the Bytetrack code will generate detections.txt for you to use with the main.py starter code. Ignore any other file produced, it won't be correct. Download detections and use it with the embeddings.npy file through main.py to get a result.txt file.
+5. Then upload this result.txt file and modify the filepath to match it. Run the second ByteTrack cell to generate the video with the correct labels
+
 # EE 443 Final Project Report - Multi Object Tracking
 
 ## ***Section i. Introduction and Overview***

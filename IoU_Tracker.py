@@ -32,7 +32,7 @@ class tracklet:
         self.times = [time]
 
         self.cur_box = box
-        self.cur_feature = None
+        self.cur_feature = feature
         self.alive = True
 
         self.final_features = None
@@ -40,7 +40,7 @@ class tracklet:
     def update(self,box,feature,time):
         self.cur_box = box
         self.boxes.append(box)
-        self.cur_feature = None # You might need to do the update if you also want to use features for tracking
+        self.cur_feature = feature # You might need to do the update if you also want to use features for tracking
         self.features.append(feature)
         self.times.append(time)
     
@@ -80,7 +80,10 @@ class tracker:
 
                 for i in range(len(self.cur_tracklets)):
                     for j in range(len(cur_frame_detection)):
-                        cost_matrix[i][j] = 1 - calculate_iou(self.cur_tracklets[i].cur_box,cur_frame_detection[j][3:7])
+                        iou_cost = 1 - calculate_iou(self.cur_tracklets[i].cur_box,cur_frame_detection[j][3:7])
+                        cost_matrix[i][j] = beta * iou_cost
+                        feature_cost = distance.cosine(self.cur_tracklets[i].cur_feature, cur_frame_features[j])
+                        cost_matrix[i][j] += alpha * feature_cost
                 
                 row_inds,col_inds = linear_sum_assignment(cost_matrix)
 

@@ -28,3 +28,7 @@ For our model, ByteTrack would generate tracks after it generated YOLOv8 predict
 
 ### Re-Identification 
 Re-Identification was accomplished via KMeans clustering on a large set of custom embeddings, then feeding it back into ByteTrack and provided code to adjust and maintain consistent labels throughout the video as people enter and exit the frame. The total number of clusters was set to be the number of people in a given clip. We used scikit-learn’s built in clustering algorithm as opposed to a manual implementation. Outside of the number of detected people, and the initial random state, all other parameters were left as default. Better performance could perhaps be achieved through the implementation of a more complex or alternative algorithm, but KMean clustering appears to have produced good results.
+
+
+
+Custom Embeddings: https://drive.google.com/file/d/1SsIGDiYEjQOCmZIJ9Gvzbg0BPTnq3Hfs/view

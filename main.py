@@ -26,6 +26,9 @@ if __name__ == "__main__":
     # Can we remove some low score detection here? For example, removing all the detections with condifence score lower than 0.3?
     # Detection format: <camera ID>, <Frame ID>, <class>, <x1>, <y1>, <x2>, <y2>, <confidence score>
     # Remember to change the embedding file too if you modify the detection!
+    # inds = test_detection[:,7] >= 0.3
+    # test_detection = test_detection[inds]
+    # test_embedding = test_embedding[inds]
 
     mot = tracker()
     postprocessing = postprocess(number_of_people,'kmeans')

@@ -9,8 +9,10 @@ if __name__ == "__main__":
 
     # The number of people in the dataset is 5. Bonus points for method that does not require this line of hard coding 
     number_of_people = 5
+    alpha = 0
+    beta = 1
 
-    result_path = 'latest_result.txt'
+    result_path = f'latest_result_a{alpha}b{beta}.txt'
 
     # Load the data
     detection = np.loadtxt('./detections4_mod.txt',delimiter=',',dtype=None)

@@ -36,7 +36,7 @@ if __name__ == "__main__":
     postprocessing = postprocess(number_of_people,'kmeans')
 
     # Run the IoU tracking
-    tracklets = mot.run(test_detection,test_embedding)
+    tracklets = mot.run(test_detection,test_embedding, alpha = alpha, beta = beta)
 
     features = np.array([trk.final_features for trk in tracklets])
 
